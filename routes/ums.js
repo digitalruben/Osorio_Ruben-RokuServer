@@ -6,7 +6,7 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: false }));
 
 router.get("/", (req, res) => {
-    res.json({ message: "You hit the ums route" });
+    res.json({ message: "Welcome. You hit Roku's UMS route" });
 })
 
 router.post('/login', (req, res) => {
