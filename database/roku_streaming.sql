@@ -3,22 +3,40 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 20, 2021 at 10:25 AM
+-- Generation Time: Apr 20, 2021 at 11:04 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `roku_streaming`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_movies`
+--
+
+CREATE TABLE `tbl_movies` (
+  `movies_id` mediumint(8) NOT NULL,
+  `movies_title` varchar(80) NOT NULL,
+  `movies_year` varchar(5) NOT NULL,
+  `movies_rating` varchar(5) NOT NULL,
+  `movies_director` varchar(80) NOT NULL,
+  `movies_cast` varchar(350) NOT NULL,
+  `movies_comments` text NOT NULL,
+  `movies_desc` text NOT NULL,
+  `movies_genre` varchar(125) NOT NULL,
+  `movies_arating` varchar(15) NOT NULL,
+  `movies_runtime` varchar(25) NOT NULL,
+  `movies_thumbnail` varchar(80) NOT NULL,
+  `movies_media` varchar(80) NOT NULL,
+  `movies_section` varchar(25) NOT NULL,
+  `movies_cover` varchar(80) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_movies`
@@ -42,6 +60,26 @@ INSERT INTO `tbl_movies` (`movies_id`, `movies_title`, `movies_year`, `movies_ra
 (15, 'Home Alone', '1995', '8.8', 'Chris Columbus', 'Macaulay Culkin, Joe Pesci, Daniel Stern ', '', 'An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation.', 'Comedy, Family ', 'G', '1h 56m', 'homealone_thumbnail.jpg', 'https://www.youtube.com/embed/jJg-fgJrzPw', 'kids', 'homealone_cover.jpg'),
 (16, 'The Lion King', '1992', '9.3', 'Roger Allers', 'Matthew Broderick, Jeremy Irons, James Earl Jones ', '', 'Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.', 'Animation, Adventure, Drama ', 'G', '1h 45m', 'lionking_thumbnail.jpg', 'https://www.youtube.com/embed/F_N5iaMHgKU', 'kids', 'lionking_cover.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_music`
+--
+
+CREATE TABLE `tbl_music` (
+  `music_id` mediumint(8) NOT NULL,
+  `music_title` varchar(80) NOT NULL,
+  `music_singer` varchar(80) NOT NULL,
+  `music_year` varchar(5) NOT NULL,
+  `music_comments` text NOT NULL,
+  `music_thumbnail` varchar(80) NOT NULL,
+  `music_genre` varchar(125) NOT NULL,
+  `music_album` varchar(80) NOT NULL,
+  `music_likes` varchar(5) NOT NULL,
+  `music_section` varchar(25) NOT NULL,
+  `music_media` varchar(80) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 --
 -- Dumping data for table `tbl_music`
 --
@@ -59,6 +97,30 @@ INSERT INTO `tbl_music` (`music_id`, `music_title`, `music_singer`, `music_year`
 (10, 'I Wanna Dance With Somebody', 'Whitney Houston', '1983', '', 'iwannadance_thumbnail.jpg', 'Pop', 'Whitney', '873k', 'adults', 'iwannadance.mp3'),
 (11, 'I Don’t Want to Miss a Thing', 'Aerosmith', '1993', '', 'idontwantomiss_thumbnail.jpg', 'Rock', 'I Don\'t Want to Miss a Thing', '956k', 'adults', 'idontwantomiss.mp3'),
 (12, 'My Heart Will Go On', 'Céline Dion ', '1992', '', 'myheart_thumbnail.jpg', 'Pop', 'Let\'s Talk About Love\r\n', '456k', 'adults', 'myheart.mp3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_tv`
+--
+
+CREATE TABLE `tbl_tv` (
+  `tv_id` mediumint(8) NOT NULL,
+  `tv_title` varchar(80) NOT NULL,
+  `tv_year` varchar(30) NOT NULL,
+  `tv_rating` varchar(5) NOT NULL,
+  `tv_director` varchar(80) NOT NULL,
+  `tv_cast` varchar(350) NOT NULL,
+  `tv_comments` text NOT NULL,
+  `tv_desc` text NOT NULL,
+  `tv_genre` varchar(125) NOT NULL,
+  `tv_arating` varchar(125) NOT NULL,
+  `tv_runtime` varchar(25) NOT NULL,
+  `tv_thumbnail` varchar(80) NOT NULL,
+  `tv_media` varchar(80) NOT NULL,
+  `tv_section` varchar(25) NOT NULL,
+  `tv_cover` varchar(80) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_tv`
@@ -78,6 +140,23 @@ INSERT INTO `tbl_tv` (`tv_id`, `tv_title`, `tv_year`, `tv_rating`, `tv_director`
 (14, 'Knight Rider', '1985', '7.4', 'Glen A. Larson', 'David Hasselhoff, Edward Mulhare, Richard Basehart ', '', 'A lone crimefighter battles the forces of evil with the help of a virtually indestructible and artificially intelligent supercar.', 'Action, Crime, Drama', 'G', '30m', 'knightrider_thumbnail.jpg', 'https://www.youtube.com/embed/0HyE6Bq-PSU', 'adults', 'knightrider_cover.jpg'),
 (15, 'Saved by the Bell', '1989', '7.4', 'Sam Bobrick', 'Mark-Paul Gosselaar, Mario Lopez, Dustin Diamond ', '', 'A close-knit group of six friends get through their teens together while attending Bayside High School in Palisades, California.', 'Comedy, Family, Romance', 'G', '30m', 'saved_thumbnail.jpg', 'https://www.youtube.com/embed/tDHi5EiH_7A', 'kids', 'saved_cover.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user`
+--
+
+CREATE TABLE `tbl_user` (
+  `user_id` smallint(8) NOT NULL,
+  `user_name` varchar(30) NOT NULL,
+  `user_pass` varchar(30) NOT NULL,
+  `user_adults` varchar(30) NOT NULL,
+  `user_kids` varchar(30) DEFAULT NULL,
+  `adults_img` varchar(80) DEFAULT NULL,
+  `kids_img` varchar(80) DEFAULT NULL,
+  `users_img` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 --
 -- Dumping data for table `tbl_user`
 --
@@ -87,6 +166,58 @@ INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_pass`, `user_adults`, `use
 (2, 'user2', 'password', 'Adult', 'Kiddo', 'adult2.png', 'kid2.jpg', 0),
 (3, 'user3', 'password', 'Adult', 'Kiddo', 'adult2.png', 'kid3.jpg', 0);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_movies`
+--
+ALTER TABLE `tbl_movies`
+  ADD PRIMARY KEY (`movies_id`);
+
+--
+-- Indexes for table `tbl_music`
+--
+ALTER TABLE `tbl_music`
+  ADD PRIMARY KEY (`music_id`);
+
+--
+-- Indexes for table `tbl_tv`
+--
+ALTER TABLE `tbl_tv`
+  ADD PRIMARY KEY (`tv_id`);
+
+--
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_movies`
+--
+ALTER TABLE `tbl_movies`
+  MODIFY `movies_id` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `tbl_music`
+--
+ALTER TABLE `tbl_music`
+  MODIFY `music_id` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `tbl_tv`
+--
+ALTER TABLE `tbl_tv`
+  MODIFY `tv_id` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `user_id` smallint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
